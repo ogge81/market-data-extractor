@@ -11,11 +11,11 @@
 
 # Commit rules
 
-Example:
-
 ```bash
+init: initialized docker
 build: build function to extract data from yfinance
 update: simplify auth middleware
 delete: update dependencies
 bugg: correct async bug in data fetcher
+test: made test for data fetching
 ```
