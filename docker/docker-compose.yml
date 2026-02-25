@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: market-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: market
+      POSTGRES_PASSWORD: market
+      POSTGRES_DB: marketdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - market_pgdata:/var/lib/postgresql/data
+      - ./initdb:/docker-entrypoint-initdb.d
+
+volumes:
+  market_pgdata:
