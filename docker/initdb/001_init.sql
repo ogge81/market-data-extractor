@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS core.ticker (
     industry core.industry NOT NULL DEFAULT 'other'
 );
 
-Data (timeframe, ohlcv) 
+-- Data (timeframe, ohlcv) 
 DO $$
 BEGIN
   CREATE TYPE data.timeframe AS ENUM (
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS data.ohlcv (
     high DOUBLE PRECISION,
     low DOUBLE PRECISION,
     close DOUBLE PRECISION,
-    volume DOUBLE PRECISION
+    volume DOUBLE PRECISION,
 
-    PRIMARY KEY (ticker_id, timeframe, date),
+    PRIMARY KEY (ticker_id, timeframe, date)
 )

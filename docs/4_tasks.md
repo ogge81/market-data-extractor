@@ -16,9 +16,18 @@ Started with cloning my repo template, with docs for planning and logging progre
 ### ✅ test: jupyter with simple function
 ### ✅ init: postgres in docker
 ### ✅ init: database schema structure
-### 🔳 build: data.ohlcv create functions
-### 🔳 build: data tables create functions
-### 🔳 update: notebooks/ structure
+
+### ✅ build: data.ohlcv create functions, update: notebooks/ & db/ structure
+
+### 🔳 build: basic db_get functions
+### 🔳 build: basic db_update functions
+### 🔳 build: basic db_delete functions
+
+
+
+### 🔳 build: data models for postgres db/
+
+### 🔳 update: sectors/industrys ENUMs
 
 
 ### 🔳

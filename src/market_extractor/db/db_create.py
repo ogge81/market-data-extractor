@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import datetime
 from typing import Optional
 
 from sqlalchemy import text
 from sqlalchemy.engine import Engine
-from .engine import make_engine
+# from .engine import make_engine
 
 def create_market(
     engine: Engine, 
@@ -63,6 +64,41 @@ def create_ticker(
                 asset=asset, 
                 sector=sector, 
                 industry=industry
+                )).scalar_one()
+        conn.commit()
+        return int(ticker_id)
+
+def create_ohlcv(
+    engine: Engine, 
+    *, 
+    ticker_id: int, 
+    timeframe: str,
+    date: datetime, 
+    open: int, 
+    high: int, 
+    low: int, 
+    close: int, 
+    volume: int, 
+    ) -> int:
+
+    sql = text("""
+        INSERT INTO data.ohlcv(ticker_id, timeframe, date, open, high, low, close, volume) 
+        VALUES (:ticker_id, :timeframe, :date, :open, :high, :low, :close, :volume)
+        RETURNING ticker_id
+    """)
+
+    with engine.connect() as conn:
+        ticker_id = conn.execute(
+            sql, 
+            dict(
+                ticker_id=ticker_id, 
+                timeframe=timeframe, 
+                date=date, 
+                open=open, 
+                high=high, 
+                low=low, 
+                close=close, 
+                volume=volume
                 )).scalar_one()
         conn.commit()
         return int(ticker_id)
