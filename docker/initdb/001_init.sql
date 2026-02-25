@@ -104,26 +104,26 @@ CREATE TABLE IF NOT EXISTS core.ticker (
     industry core.industry NOT NULL DEFAULT 'other'
 );
 
--- Data (timeframe, ohlcv) 
--- DO $$
--- BEGIN
---   CREATE TYPE data.timeframe AS ENUM (
---     '1m','5m','15m','1h','4h','1d','1w'
---   );
--- EXCEPTION
---   WHEN duplicate_object THEN NULL;
--- END $$;
+Data (timeframe, ohlcv) 
+DO $$
+BEGIN
+  CREATE TYPE data.timeframe AS ENUM (
+    '1m','5m','15m','1h','4h','1d','1w'
+  );
+EXCEPTION
+  WHEN duplicate_object THEN NULL;
+END $$;
 
--- CREATE TABLE IF NOT EXISTS data.ohlcv (
---     ticker_id BIGINT NOT NULL REFERENCES core.ticker(ticker_id) ON DELETE RESTRICT,
---     timeframe data.timeframe NOT NULL,
---     date TIMESTAMPTZ NOT NULL,
+CREATE TABLE IF NOT EXISTS data.ohlcv (
+    ticker_id BIGINT NOT NULL REFERENCES core.ticker(ticker_id) ON DELETE RESTRICT,
+    timeframe data.timeframe NOT NULL,
+    date TIMESTAMPTZ NOT NULL,
 
---     open DOUBLE PRECISION,
---     high DOUBLE PRECISION,
---     low DOUBLE PRECISION,
---     close DOUBLE PRECISION,
---     volume DOUBLE PRECISION
+    open DOUBLE PRECISION,
+    high DOUBLE PRECISION,
+    low DOUBLE PRECISION,
+    close DOUBLE PRECISION,
+    volume DOUBLE PRECISION
 
---     PRIMARY KEY (ticker_id, timeframe, date),
--- )
+    PRIMARY KEY (ticker_id, timeframe, date),
+)
