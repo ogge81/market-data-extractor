@@ -1,0 +1,33 @@
+[project]
+name = "market-extractor"
+version = "0.1.0"
+description = "Modular market data extraction pipeline"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas",
+  "numpy",
+  "sqlalchemy",
+  "psycopg2-binary",
+  "pydantic",
+  "pydantic-settings",
+  "python-dotenv",
+]
+
+[project.optional-dependencies]
+dev = [
+  "jupyterlab",
+  "ipykernel",
+  "black",
+  "ruff",
+  "pytest",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+
+[tool.ruff]
+line-length = 88

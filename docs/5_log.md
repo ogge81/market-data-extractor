@@ -24,8 +24,8 @@ None
 
 Tasks:
 
-- init: documentation and enviroment
-- init: folder structure
+- [X] init: documentation and enviroment
+- [] init: folder structure
 
 ### Thursday
 
