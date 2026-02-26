@@ -35,8 +35,7 @@ Started with cloning my repo template, with docs for planning and logging progre
 
 - ✅ build: providers/yfinance/ Lookup + Search = Seeker class
 
-- 🔳 build: providers/yfinance/ Sector class
-- 🔳 build: providers/yfinance/ Industry class
+- ✅ build: providers/yfinance/ Sector + Industry class
 
 - 🔳 build: providers/yfinance/ Websocket class
 - 🔳 build: providers/yfinance/ Websocket_async class
