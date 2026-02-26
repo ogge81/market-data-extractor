@@ -24,14 +24,16 @@ Started with cloning my repo template, with docs for planning and logging progre
 
 ### ✅ update: added requirements.txt, requirements-dev.txt
 ### ✅ update: added requirements.txt, requirements-dev.txt
+### ✅ update: set kernel on all notebooks
+
+### ✅ init: providers/yfinance/
+### ✅ init: db/models/ data models for postgres 
 
 ### 🔳 build: basic db_get functions
 ### 🔳 build: basic db_update functions
 ### 🔳 build: basic db_delete functions
 
 
-
-### 🔳 build: data models for postgres db/
 
 ### 🔳 update: sectors/industrys ENUMs
 
