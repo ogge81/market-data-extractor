@@ -19,6 +19,8 @@ Started with cloning my repo template, with docs for planning and logging progre
 
 ### ✅ build: data.ohlcv create functions, update: notebooks/ & db/ structure
 
+### ✅ update: added requirements.txt, requirements-dev.txt
+
 ### 🔳 build: basic db_get functions
 ### 🔳 build: basic db_update functions
 ### 🔳 build: basic db_delete functions
