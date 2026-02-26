@@ -32,7 +32,6 @@ Started with cloning my repo template, with docs for planning and logging progre
 ### ✅ build: providers/yfinance/ Ticker class + Tickers class
 
 ### 🔳 build: providers/yfinance/ Market class
-
 ### 🔳 build: providers/yfinance/ Calendar class
 
 ### 🔳 build: providers/yfinance/ Lookup class
