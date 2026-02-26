@@ -29,6 +29,27 @@ Started with cloning my repo template, with docs for planning and logging progre
 ### ✅ init: providers/yfinance/
 ### ✅ init: db/models/ data models for postgres 
 
+### ✅ build: providers/yfinance/ Ticker class + Tickers class
+
+### 🔳 build: providers/yfinance/ Market class
+
+### 🔳 build: providers/yfinance/ Calendar class
+
+### 🔳 build: providers/yfinance/ Lookup class
+### 🔳 build: providers/yfinance/ Search class
+
+### 🔳 build: providers/yfinance/ Sector class
+### 🔳 build: providers/yfinance/ Industry class
+
+### 🔳 build: providers/yfinance/ Websocket class
+### 🔳 build: providers/yfinance/ Websocket_async class
+
+// MODELS
+
+### 🔳 build: db/models/ Ticker class
+### 🔳 build: db/models/ Market class
+### 🔳 build: db/models/ PriceBar class
+
 ### 🔳 build: basic db_get functions
 ### 🔳 build: basic db_update functions
 ### 🔳 build: basic db_delete functions

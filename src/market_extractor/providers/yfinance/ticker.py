@@ -1,11 +1,47 @@
 import yfinance as yf
-import requests
+import datetime
 
-s = requests.Session()
+# from curl_cffi import requests
+# s = requests.Session(impersonate="chrome")
 
 class Ticker:
     def __init__(self, ticker: str):
-        self.ticker = yf.Ticker(ticker, session=s)
+        self.ticker = yf.Ticker(ticker)
+
+    ###################################
+    # Data fetchers
+    ###################################
+
+    def get_data(self, interval: str = "1d", from_date: str = None, to_date: str = None):
+        try:
+            if from_date:
+                end = to_date if to_date else datetime.date.today().strftime("%Y-%m-%d")
+                historical_data = self.ticker.history(start=from_date, end=end, interval=interval)
+            else:
+                historical_data = self.ticker.history(period="max", interval=interval)
+
+            historical_data.reset_index(inplace=True)
+
+            if historical_data.empty:
+                raise ValueError("No data found for the given dates")
+
+            if 'Datetime' in historical_data.columns:
+                historical_data.rename(columns={'Datetime': 'Date'}, inplace=True)
+            elif 'Date' not in historical_data.columns and len(historical_data.columns) > 0:
+                # If the first column is the date column but not named, rename it
+                historical_data.rename(columns={historical_data.columns[0]: 'Date'}, inplace=True)
+
+            historical_data = historical_data.drop(columns=['Dividends', 'Stock Splits'], errors='ignore')
+
+            return historical_data
+
+        except Exception as e:
+            print(f"Error getting data: {e}")
+            return None
+
+    ###################################
+    # Properties
+    ###################################
 
     @property
     def actions(self):
